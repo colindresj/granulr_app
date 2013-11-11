@@ -7,8 +7,7 @@ WDI_User_Story_Project
 
 
 As an ambitious human,
-I want to clearly define and organize my goals, and create accountability across a team,
-So I can better manage and reach my goals.
+I want to systematically break my goals down into easily digested user stories, so that I can better manage and reach my goals.
 
 As a new user,
 I want to create an account,
