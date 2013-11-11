@@ -7,8 +7,7 @@ WDI_User_Story_Project
 
 
 As an ambitious human,
-I want to clearly define and organize my goals, and create accountability across a team,
-So I can better manage and reach my goals.
+I want to systematically break my goals down into easily digested user stories, so that I can better manage and reach my goals.
 
 As a new user,
 I want to create an account,
@@ -47,7 +46,16 @@ As a user that has Alpha > Beta > Gamma stories, I want to be able to delete fro
 
 As a user that has Alpha > Beta > Gamma stories, I want to be able to edit the story I’m in so that I can better articulate or adjust my goal/task.
 
-The Alpha story should have a title, so that months down the road, you’re not looking for your goal stories and seeing a bunch that start “As a better husband, I want to” Or maybe the “I want to” field becomes the title?
+
+User Login
+## 
+
+Name, Email, and password (required)
+Phone number optional (for SMS reminder functionality)
+
+Example seed:
+User.create(name: "Joe", email:"joe@plumber.com", password: "marpdarp", phone: 262-389-0209);
+
 
   
 
