@@ -10,6 +10,7 @@
 #  complete   :boolean          default(FALSE)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  ancestry   :string(255)
 #
 
 require 'test_helper'

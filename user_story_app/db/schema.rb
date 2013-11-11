@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131111153506) do
+ActiveRecord::Schema.define(:version => 20131111195718) do
 
   create_table "stories", :force => true do |t|
     t.string   "as_a"
@@ -21,7 +21,10 @@ ActiveRecord::Schema.define(:version => 20131111153506) do
     t.boolean  "complete",   :default => false
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
+    t.string   "ancestry"
   end
+
+  add_index "stories", ["ancestry"], :name => "index_stories_on_ancestry"
 
   create_table "users", :force => true do |t|
     t.string   "name"

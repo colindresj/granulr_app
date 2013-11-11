@@ -10,9 +10,11 @@
 #  complete   :boolean          default(FALSE)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  ancestry   :string(255)
 #
 
 class Story < ActiveRecord::Base
   attr_accessible :as_a, :i_want_to, :so_i_can, :user_id, :complete
   belongs_to :user
+  has_ancestry
 end
