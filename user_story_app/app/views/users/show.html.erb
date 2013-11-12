@@ -1,20 +1,41 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @user.name %>
-</p>
+<div id="current-user" data-user="<%= @user.to_json %>">
 
-<p>
-  <b>Email:</b>
-  <%= @user.email %>
-</p>
+  <p>
+    <b>Name:</b>
+    <%= @user.name %>
+  </p>
 
-<p>
-  <b>Phone:</b>
-  <%= @user.phone %>
-</p>
+  <p>
+    <b>Email:</b>
+    <%= @user.email %>
+  </p>
+
+  <p>
+    <b>Phone:</b>
+    <%= @user.phone %>
+  </p>
 
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+  <form id="user_story_form" action="">
+    <div>
+      <label>As a:</label>
+      <input id="as_a" type="text" name="as_a">
+    </div>
+    <div>
+      <label>I want to:</label>
+      <input id="i_want_to" type="text" name="i_want_to">
+    </div>
+    <div>
+      <label>So I can:</label>
+      <input id="so_i_can" type="text" name="so_i_can">
+    </div>
+    <div>
+      <input id="submit" type="submit">
+    </div>
+  </form>
+
+</div>
+
+<div id="tiles-container" class="row"></div>
