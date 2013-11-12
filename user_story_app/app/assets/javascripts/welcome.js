@@ -6,10 +6,7 @@ $(function(){
     currentUser.displayStories(currentUser.storyTree);
   });
 
-  $('#tiles-container').on('click', '.tile', function(){
-    var dataObject = $(this).data('story');
-    currentUser.goToStory(dataObject);
-  });
+
 
 
 

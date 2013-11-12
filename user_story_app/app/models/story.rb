@@ -20,7 +20,7 @@ class Story < ActiveRecord::Base
 
   def adopt_parents_user_id
     self.user_id = self.parent.user_id
-    self.save
+    self.save!
   end
 
   def create_hash_representation

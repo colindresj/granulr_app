@@ -30,6 +30,12 @@ User.prototype.displayStories = function(array){
     storyNode.addClass(self.tileClasses);
     storyNode.data('story', story);
     storyNode.appendTo(self.$tilesContainer);
+    if (story.children.length !== 0) {
+      storyNode.on('click', function(){
+        var dataObject = $(this).data('story');
+        self.goToStory(dataObject);
+      });
+    }
   });
 };
 
