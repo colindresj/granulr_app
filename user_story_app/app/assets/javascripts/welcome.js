@@ -2,7 +2,9 @@ $(function(){
 
   var currentUser = new User()
 
-  console.log(currentUser.dataContentObject)
+  currentUser.getStoriesAjax().done(function(response){
+    console.log(response)
+  })
 
 
 
