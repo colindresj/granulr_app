@@ -20,7 +20,7 @@ class Story < ActiveRecord::Base
 
   def adopt_parents_user_id
     self.user_id = self.parent.user_id
-    self.save!
+    self.save
   end
 
   def create_hash_representation
@@ -38,11 +38,14 @@ class Story < ActiveRecord::Base
     # method on
     hashed_children = []
     self.children.each do |child|
+      # binding.pry
       hashed_children << child.create_hash_representation
     end
 
     # adding that subtree to the initial hash as children attribute
     builder['children'] = hashed_children
+
+    # binding.pry
 
     # returning the completed hash
     builder

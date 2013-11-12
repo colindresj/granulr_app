@@ -5,7 +5,6 @@ function User() {
   this.dataContentObject = $('#current-user').data('user');
   this.$tilesContainer = $('#tiles-container');
   this.tileClasses = "col-lg-3 col-md-4 col-sm-6 col-xs-12 tile";
-
 }
 
 // shortening ajax query for retrieving a user's stories based on id
@@ -19,14 +18,25 @@ User.prototype.getStoriesAjax = function(){
 };
 
 User.prototype.getStoriesEvent = function(response){
-  var user = this;
-  $.each(response, function(index, story){
+  this.storyTree = response;
+  return this.storyTree;
+};
+
+User.prototype.displayStories = function(array){
+  var self = this;
+  _.each(array, function(story, i){
     var storyNode = $('<div>');
     storyNode.html(story.as_a);
-    storyNode.addClass(user.tileClasses);
+    storyNode.addClass(self.tileClasses);
     storyNode.data('story', story);
-    user.$tilesContainer.append(storyNode);
+    storyNode.appendTo(self.$tilesContainer);
   });
+};
+
+
+User.prototype.goToStory = function(dataObject){
+  this.$tilesContainer.html('');
+  this.displayStories(dataObject.children);
 };
 
 
