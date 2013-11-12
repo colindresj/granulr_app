@@ -2,11 +2,16 @@ class StoriesController < ApplicationController
   # GET /stories
   # GET /stories.json
   def index
-    @stories = Story.where(:user_id => params[:user_id])
+    alpha_stories = Story.where(:user_id => params[:user_id])
+    hashed_stories = []
+    alpha_stories.each do |alpha_story|
+      hashed_stories << alpha_story.create_hash_representation
+    end
+    # raise
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @stories }
+      format.json { render json: hashed_stories }
     end
   end
 
@@ -44,10 +49,10 @@ class StoriesController < ApplicationController
   def create
 
     @story = Story.new(params[:story])
-    # binding.pry
 
     respond_to do |format|
       if @story.save
+        @story.adopt_parents_user_id
         format.html { redirect_to @story, notice: 'Story was successfully created.' }
         format.json { render json: @story }
       else
