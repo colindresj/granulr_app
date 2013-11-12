@@ -16,4 +16,11 @@ u4 = User.create(name:"James", email: "jrothpearl@gmail.com", phone: "516-729-76
 
 s1 = Story.create(as_a:"developer in training", i_want_to:"develop an app that helps me systematically break down my goals into small, actionable tasks", so_i_can:"use said app to efficiently knock off my goals")
 
+s2 = Story.create(as_a: "young Yeshiva boy", i_want_to:"grow a regal beard", so_i_can:"be wise like moses")
+
+s3 = Story.create(as_a: "smigel", i_want_to:"find the precious", so_i_can: "havz it")
+
 u1.stories << s1
+u4.stories << s2
+u3.stories << s3
+

@@ -14,7 +14,7 @@
 #
 
 class Story < ActiveRecord::Base
-  attr_accessible :as_a, :i_want_to, :so_i_can, :user_id, :complete
+  attr_accessible :as_a, :i_want_to, :so_i_can, :user_id, :complete, :parent_id
   belongs_to :user
   has_ancestry
 end
