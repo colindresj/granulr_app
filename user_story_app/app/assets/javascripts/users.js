@@ -15,23 +15,20 @@ User.prototype.getStoriesAjax = function(){
     url: '/users/' + this.dataContentObject.id + '/stories',
     type: 'GET',
     dataType: 'json'
-  })
-}
+  });
+};
 
+User.prototype.getStoriesEvent = function(response){
+  var user = this;
+  $.each(response, function(index, story){
+    var storyNode = $('<div>');
+    storyNode.html(story.as_a);
+    storyNode.addClass(user.tileClasses);
+    storyNode.data('story', story);
+    user.$tilesContainer.append(storyNode);
+  });
+};
 
-  // .done(function(response) {
-
-
-
-  //   $.each(response, function(index, story) {
-
-  //       var storyNode = $('<div>');
-  //       storyNode.html(story.as_a);
-  //       storyNode.addClass(tileClass);
-  //       $('#tiles-container').append(storyNode);
-  //   }); // each
-
-  // }); // done
 
   // var $user_story_form = $("#user_story_form")
 

@@ -1,10 +1,10 @@
 $(function(){
 
-  var currentUser = new User()
+  var currentUser = new User();
 
   currentUser.getStoriesAjax().done(function(response){
-    console.log(response)
-  })
+    currentUser.getStoriesEvent(response);
+  });
 
 
 
