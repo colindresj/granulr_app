@@ -24,3 +24,10 @@ u1.stories << s1
 u4.stories << s2
 u3.stories << s3
 
+s4 = s3.children.create(as_a: 'hello')
+s3.children.create(as_a: 'hello2')
+s3.children.create(as_a: 'hello3')
+
+s4.children.create(as_a: 'hello4')
+s4.children.create(as_a: 'hello5')
+
