@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(:version => 20131113205941) do
     t.string   "i_want_to"
     t.string   "so_i_can"
     t.integer  "user_id"
-    t.boolean  "complete",   :default => false
+    t.boolean  "completed",  :default => false
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
     t.string   "ancestry"

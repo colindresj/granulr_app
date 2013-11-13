@@ -1,4 +1,3 @@
-
 function User() {
   this.dataContentObject = $('#current-user').data('user');
   // # BIASED_SUGGESTION: perhaps change this to this.model
@@ -56,7 +55,7 @@ User.prototype.displayStories = function(array){
     var storyChildren = createdStory.dataObject.children || [];
     var checkable = true;
 
-     _.each(storyChildren, function(childStory, i){
+    _.each(storyChildren, function(childStory, i){
         if (childStory.completed === false) {
           checkable = false;
         }
@@ -69,7 +68,7 @@ User.prototype.displayStories = function(array){
       createdStory.$checkboxWrapperNode.on('click', function(e){
         e.stopPropagation();
         if (createdStory.completed) {
-          createdStory.completed = false;
+          createdStory.toggleComplete()
           createdStory.$domNode.css('color', 'red');
         } else {
           createdStory.toggleComplete();
@@ -98,14 +97,14 @@ User.prototype.displayStories = function(array){
     // children have 'completed' value === false
     // if so, disable clicking on 'Done'
     // else {
-    //   _.each(storyChildren, function(childStory, i){
-    //     if (childStory.completed === false) {
-    //       createdStory.$domNode.css('color', 'gray');
-    //       createdStory.$checkboxWrapperNode.on('click', function(e){
-    //         e.stopPropagation();
-    //       });
-    //     }
-    //   });
+    //  _.each(storyChildren, function(childStory, i){
+    //    if (childStory.completed === false) {
+    //      createdStory.$domNode.css('color', 'gray');
+    //      createdStory.$checkboxWrapperNode.on('click', function(e){
+    //        e.stopPropagation();
+    //      });
+    //    }
+    //  });
     // }
     // loops through each of the
     // allows the user to click the done button on a story without going into it
