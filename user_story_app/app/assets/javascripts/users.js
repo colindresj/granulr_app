@@ -53,7 +53,7 @@ User.prototype.displayStories = function(array){
     });
 
     // grabs all of the story's children
-    var storyChildren = createdStory.dataObject.children;
+    var storyChildren = createdStory.dataObject.children || [];
     var checkable = true;
 
      _.each(storyChildren, function(childStory, i){
