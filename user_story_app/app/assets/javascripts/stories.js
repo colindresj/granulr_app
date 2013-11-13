@@ -7,6 +7,10 @@ function Story(story){
 }
 
 Story.prototype.addContentToDomNode = function(){
+  // takes the domNode we've assigned the story to and inserts
+  // the 'as_a' value of the dataObject into the dom node as content
   this.$domNode.html(this.dataObject.as_a);
+
+  // #TODO check if this is necessary
   this.$domNode.data('story', this.dataObject);
 };

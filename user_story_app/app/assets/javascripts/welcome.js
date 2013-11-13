@@ -28,7 +28,10 @@ $(function(){
       } // data
     }) // ajax
     .done(function(response) {
-      console.log(response);
+      // to allow us to iterate over the response with the 'displayStories' function (it would otherwise be an object, which wouldn't work)
+      var responseArray = [response];
+      currentUser.displayStories(responseArray);
+      // console.log(response);
       $user_story_form[0].reset();
     }); // done
   }); //on submit

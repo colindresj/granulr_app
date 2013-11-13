@@ -22,7 +22,6 @@ User.prototype.getStoriesEvent = function(response){
 // grab a particular set of sibling stories as an array
 User.prototype.displayStories = function(array){
   var self = this;
-
   // loop through them and create a new Story object from the data
   _.each(array, function(story, i){
     var createdStory = new Story(story);
