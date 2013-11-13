@@ -45,8 +45,19 @@ User.prototype.displayStories = function(array){
       self.goToStory(createdStory.dataObject);
     });
 
-  });
-};
+    // allows the user to click the done button on a story without going into it
+    createdStory.$checkboxWrapperNode.on('click', function(e){
+      e.stopPropagation();
+      if (createdStory.completed) {
+        createdStory.completed = false;
+        createdStory.$domNode.css('color', 'red');
+      } else {
+        createdStory.completed = true;
+        createdStory.$domNode.css('color', 'black');
+      }
+    }); // on click of checkboxWrapperNode
+  }); // each
+}; // display stories function
 
 User.prototype.goToStory = function(dataObject){
 
