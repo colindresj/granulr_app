@@ -34,4 +34,7 @@ UserStoryApp::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  #Don't forget to set up the proper URL in production.rb when we upload to heroku!
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 end
