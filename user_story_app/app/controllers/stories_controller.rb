@@ -5,7 +5,7 @@ class StoriesController < ApplicationController
 
     # find all the alpha stories belonging to a specific user
     # via searching where ancestry equals nil
-    alpha_stories = Story.where(:user_id => params[:user_id], :ancestry => nil)
+    alpha_stories = Story.where(:user_id => params[:user_id], :ancestry => nil).order('created_at ASC')
 
 
     # loop through those alpha stories and generate each alpha stories
@@ -71,6 +71,7 @@ class StoriesController < ApplicationController
   # PUT /stories/1
   # PUT /stories/1.json
   def update
+    # binding.pry
     @user = User.find(params[:user_id])
     @story = Story.find(params[:id])
 
