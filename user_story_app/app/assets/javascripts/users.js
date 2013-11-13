@@ -1,4 +1,3 @@
-
 function User() {
   this.dataContentObject = $('#current-user').data('user');
   // # BIASED_SUGGESTION: perhaps change this to this.model
@@ -53,7 +52,7 @@ User.prototype.displayStories = function(array){
     });
 
     // grabs all of the story's children
-    var storyChildren = createdStory.dataObject.children;
+    var storyChildren = createdStory.dataObject.children || [];
     var checkable = true;
 
      _.each(storyChildren, function(childStory, i){
@@ -69,7 +68,7 @@ User.prototype.displayStories = function(array){
       createdStory.$checkboxWrapperNode.on('click', function(e){
         e.stopPropagation();
         if (createdStory.completed) {
-          createdStory.completed = false;
+          createdStory.toggleComplete();
           createdStory.$domNode.css('color', 'red');
         } else {
           createdStory.toggleComplete();
