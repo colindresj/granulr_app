@@ -32,8 +32,8 @@ User.prototype.displayStories = function(array){
     // self.storyTree
     // _.each(self.storyTree, function(story, i){
 
-  _.each(array, function(story, i){
-    var createdStory = new Story(story);
+      _.each(array, function(story, i){
+        var createdStory = new Story(story);
 
     // append that Story object's DOM representation to #tiles-container
     createdStory.addContentToDomNode();
@@ -45,17 +45,40 @@ User.prototype.displayStories = function(array){
       self.goToStory(createdStory.dataObject);
     });
 
+    // grabs all of the story's children
+    var storyChildren = createdStory.dataObject.children;
+
+    // if the story does not have children, add an event listener on 'Done' click
+    // that stops propogation, so you don't go into the story and at the same time
+    // allows you to toggle the storie's 'completed' value
+    if (storyChildren.length === 0){
+      createdStory.$checkboxWrapperNode.on('click', function(e){
+        e.stopPropagation();
+        if (createdStory.completed) {
+          createdStory.completed = false;
+          createdStory.$domNode.css('color', 'red');
+        } else {
+          createdStory.completed = true;
+          createdStory.$domNode.css('color', 'green');
+        }
+      }); // on click of checkboxWrapperNode
+    }
+
+    // if the story has children, loop through those children and check if any of those
+    // children have 'completed' value === false
+    // if so, disable clicking on 'Done'
+    else {
+      _.each(storyChildren, function(childStory, i){
+        if (childStory.completed === false) {
+          createdStory.$domNode.css('color', 'gray');
+          createdStory.$checkboxWrapperNode.on('click', function(e){
+            e.stopPropagation();
+          });
+        }
+      });
+    }
+    // loops through each of the
     // allows the user to click the done button on a story without going into it
-    createdStory.$checkboxWrapperNode.on('click', function(e){
-      e.stopPropagation();
-      if (createdStory.completed) {
-        createdStory.completed = false;
-        createdStory.$domNode.css('color', 'red');
-      } else {
-        createdStory.completed = true;
-        createdStory.$domNode.css('color', 'black');
-      }
-    }); // on click of checkboxWrapperNode
   }); // each
 }; // display stories function
 
@@ -74,16 +97,16 @@ User.prototype.goToStory = function(dataObject){
 User.prototype.createStoryAjax = function(){
   var user = this;
   return $.ajax({
-          url: '/users/' + user.dataContentObject.id + '/stories',
-          type: 'POST',
-          dataType: 'json',
-          data: {
-            story: {
-              as_a: $("#as_a").val(),
-              i_want_to: $("#i_want_to").val(),
-              so_i_can: $("#so_i_can").val(),
-              user_id: user.dataContentObject.id,
-              parent_id: user.currentStoryId
+    url: '/users/' + user.dataContentObject.id + '/stories',
+    type: 'POST',
+    dataType: 'json',
+    data: {
+      story: {
+        as_a: $("#as_a").val(),
+        i_want_to: $("#i_want_to").val(),
+        so_i_can: $("#so_i_can").val(),
+        user_id: user.dataContentObject.id,
+        parent_id: user.currentStoryId
             } // story
           } // data
         }) // ajax

@@ -11,14 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131111195718) do
+ActiveRecord::Schema.define(:version => 20131113202254) do
 
   create_table "stories", :force => true do |t|
     t.string   "as_a"
     t.string   "i_want_to"
     t.string   "so_i_can"
     t.integer  "user_id"
-    t.boolean  "complete",   :default => false
+    t.boolean  "completed",  :default => false
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
     t.string   "ancestry"
