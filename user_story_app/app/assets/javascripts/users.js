@@ -51,22 +51,21 @@ User.prototype.goToStory = function(dataObject){
   this.displayStories(dataObject.children);
 };
 
+User.prototype.createStoryAjax = function(){
+  var user = this;
+  return $.ajax({
+          url: '/users/' + user.dataContentObject.id + '/stories',
+          type: 'POST',
+          dataType: 'json',
+          data: {
+            story: {
+              as_a: $("#as_a").val(),
+              i_want_to: $("#i_want_to").val(),
+              so_i_can: $("#so_i_can").val(),
+              user_id: user.dataContentObject.id,
+              parent_id: user.currentStoryId
+            } // story
+          } // data
+        }) // ajax
 
-  // var $user_story_form = $("#user_story_form")
-
-  // $user_story_form.on("submit", function(e){
-  //   e.preventDefault();
-  //   $.ajax({
-  //   url: '/users/5/stories.json',
-  //   type: 'POST',
-  //   dataType: 'json',
-  //   data: {story: {
-  //     as_a: $("#as_a").val(),
-  //     i_want_to: $("#i_want_to").val(),
-  //     so_i_can: $("#so_i_can").val() }}
-  //   })
-  //   .done(function(response) {
-  //     console.log(response)
-  //     $user_story_form[0].reset();
-  //   }); // done
-  // })
+} // createStoryAjax
