@@ -8883,3 +8883,395 @@ Processing by StoriesController#index as JSON
   [1m[36mStory Load (1.1ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4/8'[0m
   [1m[35mStory Load (0.9ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4/7'
 Completed 200 OK in 22ms (Views: 2.2ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2013-11-12 18:43:55 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "3"]]
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+Compiled stories.js  (0ms)  (pid 67244)
+Compiled users.js  (0ms)  (pid 67244)
+Compiled application.js  (6ms)  (pid 67244)
+Completed 200 OK in 103ms (Views: 101.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/3/stories" for 127.0.0.1 at 2013-11-12 18:43:55 -0500
+Processing by StoriesController#index as JSON
+  Parameters: {"user_id"=>"3"}
+  [1m[35mStory Load (0.6ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."user_id" = 3
+  [1m[36mStory Load (0.6ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3'[0m
+  [1m[35mStory Load (0.5ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/6'
+  [1m[36mStory Load (0.5ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/5'[0m
+  [1m[35mStory Load (0.9ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4'
+  [1m[36mStory Load (0.6ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4/8'[0m
+  [1m[35mStory Load (0.7ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4/7'
+Completed 200 OK in 18ms (Views: 2.8ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2013-11-12 18:43:56 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "3"]]
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 11ms (Views: 9.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/3/stories" for 127.0.0.1 at 2013-11-12 18:43:56 -0500
+Processing by StoriesController#index as JSON
+  Parameters: {"user_id"=>"3"}
+  [1m[35mStory Load (0.7ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."user_id" = 3
+  [1m[36mStory Load (1.0ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3'[0m
+  [1m[35mStory Load (0.8ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/6'
+  [1m[36mStory Load (1.4ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/5'[0m
+  [1m[35mStory Load (0.9ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4'
+  [1m[36mStory Load (0.4ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4/8'[0m
+  [1m[35mStory Load (0.4ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4/7'
+Completed 200 OK in 18ms (Views: 1.9ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2013-11-12 18:44:01 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "3"]]
+  Rendered users/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 13ms (Views: 10.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/3/stories" for 127.0.0.1 at 2013-11-12 18:44:01 -0500
+Processing by StoriesController#index as JSON
+  Parameters: {"user_id"=>"3"}
+  [1m[35mStory Load (0.6ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."user_id" = 3
+  [1m[36mStory Load (0.8ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3'[0m
+  [1m[35mStory Load (1.0ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/6'
+  [1m[36mStory Load (1.1ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/5'[0m
+  [1m[35mStory Load (1.1ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4'
+  [1m[36mStory Load (0.5ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4/8'[0m
+  [1m[35mStory Load (0.6ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4/7'
+Completed 200 OK in 19ms (Views: 2.6ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2013-11-12 18:44:02 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "3"]]
+  Rendered users/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/3/stories" for 127.0.0.1 at 2013-11-12 18:44:02 -0500
+Processing by StoriesController#index as JSON
+  Parameters: {"user_id"=>"3"}
+  [1m[35mStory Load (0.6ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."user_id" = 3
+  [1m[36mStory Load (1.1ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3'[0m
+  [1m[35mStory Load (2.1ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/6'
+  [1m[36mStory Load (0.6ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/5'[0m
+  [1m[35mStory Load (0.6ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4'
+  [1m[36mStory Load (0.6ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4/8'[0m
+  [1m[35mStory Load (1.2ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4/7'
+Completed 200 OK in 24ms (Views: 3.2ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2013-11-12 18:44:07 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "3"]]
+  Rendered users/show.html.erb within layouts/application (0.5ms)
+Compiled users.js  (0ms)  (pid 67244)
+Compiled application.js  (4ms)  (pid 67244)
+Completed 200 OK in 81ms (Views: 78.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/3/stories" for 127.0.0.1 at 2013-11-12 18:44:07 -0500
+Processing by StoriesController#index as JSON
+  Parameters: {"user_id"=>"3"}
+  [1m[35mStory Load (0.5ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."user_id" = 3
+  [1m[36mStory Load (0.9ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3'[0m
+  [1m[35mStory Load (0.7ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/6'
+  [1m[36mStory Load (3.3ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/5'[0m
+  [1m[35mStory Load (0.6ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4'
+  [1m[36mStory Load (0.6ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4/8'[0m
+  [1m[35mStory Load (0.6ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4/7'
+Completed 200 OK in 20ms (Views: 1.8ms | ActiveRecord: 7.3ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2013-11-12 18:45:34 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "3"]]
+  Rendered users/show.html.erb within layouts/application (0.6ms)
+Compiled stories.js  (0ms)  (pid 67244)
+Compiled users.js  (0ms)  (pid 67244)
+Compiled application.js  (9ms)  (pid 67244)
+Completed 200 OK in 140ms (Views: 136.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/3/stories" for 127.0.0.1 at 2013-11-12 18:45:34 -0500
+Processing by StoriesController#index as JSON
+  Parameters: {"user_id"=>"3"}
+  [1m[35mStory Load (0.5ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."user_id" = 3
+  [1m[36mStory Load (1.0ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3'[0m
+  [1m[35mStory Load (1.1ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/6'
+  [1m[36mStory Load (0.8ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/5'[0m
+  [1m[35mStory Load (1.7ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4'
+  [1m[36mStory Load (1.2ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4/8'[0m
+  [1m[35mStory Load (0.7ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4/7'
+Completed 200 OK in 72ms (Views: 1.5ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2013-11-12 18:45:36 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "3"]]
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 11ms (Views: 9.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/3/stories" for 127.0.0.1 at 2013-11-12 18:45:37 -0500
+Processing by StoriesController#index as JSON
+  Parameters: {"user_id"=>"3"}
+  [1m[35mStory Load (0.6ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."user_id" = 3
+  [1m[36mStory Load (0.7ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3'[0m
+  [1m[35mStory Load (1.1ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/6'
+  [1m[36mStory Load (0.6ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/5'[0m
+  [1m[35mStory Load (1.8ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4'
+  [1m[36mStory Load (0.9ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4/8'[0m
+  [1m[35mStory Load (0.6ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4/7'
+Completed 200 OK in 22ms (Views: 2.8ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2013-11-12 18:45:38 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "3"]]
+  Rendered users/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 11ms (Views: 9.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/3/stories" for 127.0.0.1 at 2013-11-12 18:45:39 -0500
+Processing by StoriesController#index as JSON
+  Parameters: {"user_id"=>"3"}
+  [1m[35mStory Load (0.6ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."user_id" = 3
+  [1m[36mStory Load (1.3ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3'[0m
+  [1m[35mStory Load (0.7ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/6'
+  [1m[36mStory Load (0.9ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/5'[0m
+  [1m[35mStory Load (1.2ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4'
+  [1m[36mStory Load (1.0ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4/8'[0m
+  [1m[35mStory Load (0.6ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4/7'
+Completed 200 OK in 21ms (Views: 2.0ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2013-11-12 18:46:05 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "3"]]
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+Compiled users.js  (0ms)  (pid 67244)
+Compiled application.js  (4ms)  (pid 67244)
+Completed 200 OK in 49ms (Views: 46.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/3/stories" for 127.0.0.1 at 2013-11-12 18:46:06 -0500
+Processing by StoriesController#index as JSON
+  Parameters: {"user_id"=>"3"}
+  [1m[35mStory Load (0.5ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."user_id" = 3
+  [1m[36mStory Load (0.7ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3'[0m
+  [1m[35mStory Load (0.7ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/6'
+  [1m[36mStory Load (0.9ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/5'[0m
+  [1m[35mStory Load (0.8ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4'
+  [1m[36mStory Load (2.6ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4/8'[0m
+  [1m[35mStory Load (0.8ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4/7'
+Completed 200 OK in 23ms (Views: 3.2ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2013-11-12 18:46:11 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "3"]]
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+Compiled users.js  (0ms)  (pid 67244)
+Compiled application.js  (4ms)  (pid 67244)
+Completed 200 OK in 44ms (Views: 42.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/3/stories" for 127.0.0.1 at 2013-11-12 18:46:12 -0500
+Processing by StoriesController#index as JSON
+  Parameters: {"user_id"=>"3"}
+  [1m[35mStory Load (0.7ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."user_id" = 3
+  [1m[36mStory Load (0.9ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3'[0m
+  [1m[35mStory Load (0.9ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/6'
+  [1m[36mStory Load (0.5ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/5'[0m
+  [1m[35mStory Load (3.2ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4'
+  [1m[36mStory Load (1.0ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4/8'[0m
+  [1m[35mStory Load (0.7ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4/7'
+Completed 200 OK in 25ms (Views: 2.5ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2013-11-12 18:47:37 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "3"]]
+  Rendered users/show.html.erb within layouts/application (0.5ms)
+Compiled stories.js  (0ms)  (pid 67244)
+Compiled application.js  (4ms)  (pid 67244)
+Completed 200 OK in 78ms (Views: 76.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/3/stories" for 127.0.0.1 at 2013-11-12 18:47:37 -0500
+Processing by StoriesController#index as JSON
+  Parameters: {"user_id"=>"3"}
+  [1m[35mStory Load (0.7ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."user_id" = 3
+  [1m[36mStory Load (0.5ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3'[0m
+  [1m[35mStory Load (1.0ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/6'
+  [1m[36mStory Load (0.7ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/5'[0m
+  [1m[35mStory Load (1.4ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4'
+  [1m[36mStory Load (0.7ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4/8'[0m
+  [1m[35mStory Load (1.0ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4/7'
+Completed 200 OK in 21ms (Views: 2.7ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2013-11-12 18:47:38 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "3"]]
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 11ms (Views: 8.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/3/stories" for 127.0.0.1 at 2013-11-12 18:47:39 -0500
+Processing by StoriesController#index as JSON
+  Parameters: {"user_id"=>"3"}
+  [1m[35mStory Load (0.7ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."user_id" = 3
+  [1m[36mStory Load (1.2ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3'[0m
+  [1m[35mStory Load (0.6ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/6'
+  [1m[36mStory Load (0.9ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/5'[0m
+  [1m[35mStory Load (1.3ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4'
+  [1m[36mStory Load (0.5ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4/8'[0m
+  [1m[35mStory Load (0.4ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4/7'
+Completed 200 OK in 22ms (Views: 1.5ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2013-11-12 18:47:39 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "3"]]
+  Rendered users/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 11ms (Views: 9.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2013-11-12 18:47:39 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "3"]]
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 10ms (Views: 8.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2013-11-12 18:47:39 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "3"]]
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 43ms (Views: 41.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/3/stories" for 127.0.0.1 at 2013-11-12 18:47:40 -0500
+Processing by StoriesController#index as JSON
+  Parameters: {"user_id"=>"3"}
+  [1m[35mStory Load (0.6ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."user_id" = 3
+  [1m[36mStory Load (0.9ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3'[0m
+  [1m[35mStory Load (0.8ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/6'
+  [1m[36mStory Load (0.6ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/5'[0m
+  [1m[35mStory Load (1.3ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4'
+  [1m[36mStory Load (0.5ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4/8'[0m
+  [1m[35mStory Load (0.5ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4/7'
+Completed 200 OK in 20ms (Views: 3.3ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2013-11-12 18:47:57 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "3"]]
+  Rendered users/show.html.erb within layouts/application (1.4ms)
+Compiled stories.js  (0ms)  (pid 67244)
+Compiled application.js  (5ms)  (pid 67244)
+Completed 200 OK in 86ms (Views: 84.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/3/stories" for 127.0.0.1 at 2013-11-12 18:47:58 -0500
+Processing by StoriesController#index as JSON
+  Parameters: {"user_id"=>"3"}
+  [1m[35mStory Load (0.6ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."user_id" = 3
+  [1m[36mStory Load (1.0ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3'[0m
+  [1m[35mStory Load (1.7ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/6'
+  [1m[36mStory Load (0.6ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/5'[0m
+  [1m[35mStory Load (0.5ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4'
+  [1m[36mStory Load (0.6ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4/8'[0m
+  [1m[35mStory Load (0.8ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4/7'
+Completed 200 OK in 19ms (Views: 1.6ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2013-11-12 18:48:06 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "3"]]
+  Rendered users/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 12ms (Views: 9.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/3/stories" for 127.0.0.1 at 2013-11-12 18:48:07 -0500
+Processing by StoriesController#index as JSON
+  Parameters: {"user_id"=>"3"}
+  [1m[35mStory Load (0.5ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."user_id" = 3
+  [1m[36mStory Load (0.9ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3'[0m
+  [1m[35mStory Load (0.5ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/6'
+  [1m[36mStory Load (0.8ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/5'[0m
+  [1m[35mStory Load (0.8ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4'
+  [1m[36mStory Load (1.0ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4/8'[0m
+  [1m[35mStory Load (1.2ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4/7'
+Completed 200 OK in 20ms (Views: 2.6ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2013-11-12 18:49:19 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "3"]]
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+Compiled stories.js  (0ms)  (pid 67244)
+Compiled users.js  (0ms)  (pid 67244)
+Compiled application.js  (5ms)  (pid 67244)
+Completed 200 OK in 48ms (Views: 46.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/3/stories" for 127.0.0.1 at 2013-11-12 18:49:19 -0500
+Processing by StoriesController#index as JSON
+  Parameters: {"user_id"=>"3"}
+  [1m[35mStory Load (0.6ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."user_id" = 3
+  [1m[36mStory Load (0.7ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3'[0m
+  [1m[35mStory Load (0.9ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/6'
+  [1m[36mStory Load (0.7ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/5'[0m
+  [1m[35mStory Load (1.8ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4'
+  [1m[36mStory Load (0.9ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4/8'[0m
+  [1m[35mStory Load (0.6ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4/7'
+Completed 200 OK in 21ms (Views: 1.5ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2013-11-12 18:49:22 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "3"]]
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 10ms (Views: 8.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/3/stories" for 127.0.0.1 at 2013-11-12 18:49:23 -0500
+Processing by StoriesController#index as JSON
+  Parameters: {"user_id"=>"3"}
+  [1m[35mStory Load (0.6ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."user_id" = 3
+  [1m[36mStory Load (1.0ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3'[0m
+  [1m[35mStory Load (0.8ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/6'
+  [1m[36mStory Load (1.9ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/5'[0m
+  [1m[35mStory Load (1.8ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4'
+  [1m[36mStory Load (0.6ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4/8'[0m
+  [1m[35mStory Load (1.1ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."ancestry" = '3/4/7'
+Completed 200 OK in 22ms (Views: 1.4ms | ActiveRecord: 7.9ms)

@@ -1,5 +1,3 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
 
 function User() {
   this.dataContentObject = $('#current-user').data('user');
@@ -8,7 +6,6 @@ function User() {
 }
 
 // shortening ajax query for retrieving a user's stories based on id
-
 User.prototype.getStoriesAjax = function(){
   return $.ajax({
     url: '/users/' + this.dataContentObject.id + '/stories',
@@ -17,31 +14,40 @@ User.prototype.getStoriesAjax = function(){
   });
 };
 
+// set the current user's storyTree to the AJAX response
 User.prototype.getStoriesEvent = function(response){
   this.storyTree = response;
-  return this.storyTree;
 };
 
+// grab a particular set of sibling stories as an array
 User.prototype.displayStories = function(array){
   var self = this;
+
+  // loop through them and create a new Story object from the data
   _.each(array, function(story, i){
-    var storyNode = $('<div>');
-    storyNode.html(story.as_a);
-    storyNode.addClass(self.tileClasses);
-    storyNode.data('story', story);
-    storyNode.appendTo(self.$tilesContainer);
+    var createdStory = new Story(story);
+
+    // append that Story object's DOM representation to #tiles-container
+    createdStory.addContentToDomNode();
+    self.$tilesContainer.append(createdStory.$domNode);
+
+    // add an event listener on click if the Story has any children
+    // so that we can 'step into' it and see those children stories
     if (story.children.length !== 0) {
-      storyNode.on('click', function(){
-        var dataObject = $(this).data('story');
-        self.goToStory(dataObject);
+      createdStory.$domNode.on('click', function(){
+        self.goToStory(createdStory.dataObject);
       });
     }
   });
 };
 
-
 User.prototype.goToStory = function(dataObject){
+
+  // first clear #tiles-container
   this.$tilesContainer.html('');
+
+  // run all the children through the displayStories function in order to
+  // create Story objects and apply the proper event listeners
   this.displayStories(dataObject.children);
 };
 
