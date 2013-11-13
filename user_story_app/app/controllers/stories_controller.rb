@@ -2,8 +2,14 @@ class StoriesController < ApplicationController
   # GET /stories
   # GET /stories.json
   def index
+
+    # find all the alpha stories belonging to a specific user
+    # via searching where ancestry equals nil
     alpha_stories = Story.where(:user_id => params[:user_id], :ancestry => nil)
 
+
+    # loop through those alpha stories and generate each alpha stories
+    # hash representation -- grow the tree
     hashed_stories = []
     alpha_stories.each do |alpha_story|
       hashed_stories << alpha_story.create_hash_representation

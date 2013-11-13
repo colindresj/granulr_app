@@ -31,13 +31,12 @@ User.prototype.displayStories = function(array){
     createdStory.addContentToDomNode();
     self.$tilesContainer.append(createdStory.$domNode);
 
-    // add an event listener on click if the Story has any children
-    // so that we can 'step into' it and see those children stories
-    if (story.children.length !== 0) {
-      createdStory.$domNode.on('click', function(){
-        self.goToStory(createdStory.dataObject);
-      });
-    }
+    // add an event listener on click
+    // to 'step into' it and see those children stories
+    createdStory.$domNode.on('click', function(){
+      self.goToStory(createdStory.dataObject);
+    });
+
   });
 };
 
