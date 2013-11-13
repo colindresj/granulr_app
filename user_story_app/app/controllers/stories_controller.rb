@@ -2,7 +2,8 @@ class StoriesController < ApplicationController
   # GET /stories
   # GET /stories.json
   def index
-    alpha_stories = Story.where(:user_id => params[:user_id])
+    alpha_stories = Story.where(:user_id => params[:user_id], :ancestry => nil)
+
     hashed_stories = []
     alpha_stories.each do |alpha_story|
       hashed_stories << alpha_story.create_hash_representation
@@ -47,7 +48,6 @@ class StoriesController < ApplicationController
   # POST /stories
   # POST /stories.json
   def create
-
     @story = Story.new(params[:story])
 
     respond_to do |format|

@@ -2,7 +2,7 @@
 function User() {
   this.dataContentObject = $('#current-user').data('user');
   this.$tilesContainer = $('#tiles-container');
-  this.tileClasses = "col-lg-3 col-md-4 col-sm-6 col-xs-12 tile";
+  this.currentStoryId = null;
 }
 
 // shortening ajax query for retrieving a user's stories based on id
@@ -45,6 +45,8 @@ User.prototype.goToStory = function(dataObject){
 
   // first clear #tiles-container
   this.$tilesContainer.html('');
+
+  this.currentStoryId = dataObject.id;
 
   // run all the children through the displayStories function in order to
   // create Story objects and apply the proper event listeners
