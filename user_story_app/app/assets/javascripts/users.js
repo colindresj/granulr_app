@@ -55,7 +55,11 @@ User.prototype.displayStories = function(array){
     var storyChildren = createdStory.dataObject.children || [];
     var checkable = true;
 
+<<<<<<< HEAD
      _.each(storyChildren, function(childStory, i){
+=======
+    _.each(storyChildren, function(childStory, i){
+>>>>>>> 11bd9193d1fe295378676ece94b26c720e015503
         if (childStory.completed === false) {
           checkable = false;
         }
@@ -68,7 +72,11 @@ User.prototype.displayStories = function(array){
       createdStory.$checkboxWrapperNode.on('click', function(e){
         e.stopPropagation();
         if (createdStory.completed) {
+<<<<<<< HEAD
           createdStory.toggleComplete();
+=======
+          createdStory.toggleComplete()
+>>>>>>> 11bd9193d1fe295378676ece94b26c720e015503
           createdStory.$domNode.css('color', 'red');
         } else {
           createdStory.toggleComplete();
@@ -97,6 +105,7 @@ User.prototype.displayStories = function(array){
     // children have 'completed' value === false
     // if so, disable clicking on 'Done'
     // else {
+<<<<<<< HEAD
     //   _.each(storyChildren, function(childStory, i){
     //     if (childStory.completed === false) {
     //       createdStory.$domNode.css('color', 'gray');
@@ -105,6 +114,16 @@ User.prototype.displayStories = function(array){
     //       });
     //     }
     //   });
+=======
+    //  _.each(storyChildren, function(childStory, i){
+    //    if (childStory.completed === false) {
+    //      createdStory.$domNode.css('color', 'gray');
+    //      createdStory.$checkboxWrapperNode.on('click', function(e){
+    //        e.stopPropagation();
+    //      });
+    //    }
+    //  });
+>>>>>>> 11bd9193d1fe295378676ece94b26c720e015503
     // }
     // loops through each of the
     // allows the user to click the done button on a story without going into it
