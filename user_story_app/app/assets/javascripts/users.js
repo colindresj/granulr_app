@@ -1,6 +1,9 @@
 
 function User() {
   this.dataContentObject = $('#current-user').data('user');
+  // # BIASED_SUGGESTION: perhaps change this to this.model
+  // Move this to not rely on the data attribute in the DOM
+  // Not important now.
   this.$tilesContainer = $('#tiles-container');
   this.currentStoryId = null;
 }
@@ -23,6 +26,12 @@ User.prototype.getStoriesEvent = function(response){
 User.prototype.displayStories = function(array){
   var self = this;
   // loop through them and create a new Story object from the data
+
+  // BIASED_SUGGESTION
+    // replace array with
+    // self.storyTree
+    // _.each(self.storyTree, function(story, i){
+
   _.each(array, function(story, i){
     var createdStory = new Story(story);
 
