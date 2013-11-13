@@ -19,8 +19,12 @@ class Story < ActiveRecord::Base
   has_ancestry
 
   def adopt_parents_user_id
-    self.user_id = self.parent.user_id
-    self.save!
+    # will only set user_id for non-alpha stories. we can't set the
+    # user id of an alpha story to a parent's user id, because an alpha doesn't HAVE a parent.
+    if self.user_id == nil
+      self.user_id = self.parent.user_id
+      self.save!
+    end
   end
 
   def create_hash_representation

@@ -1,19 +1,23 @@
 $(function(){
-
   var currentUser = new User();
 
   currentUser.getStoriesAjax().done(function(response){
     currentUser.getStoriesEvent(response);
+    currentUser.displayStories(currentUser.storyTree);
   });
 
 
+// seemingly needed this variable declared before the event handler that follows
+  var $user_story_form = $("#user_story_form");
 
-
-
-
-
-
-
+  $user_story_form.on("submit", function(e){
+    e.preventDefault();
+    currentUser.createStoryAjax()
+      .done(function(response) {
+        // to allow us to iterate over the response with the 'displayStories' function (it would otherwise be an object, which wouldn't work)
+        var responseArray = [response];
+        currentUser.displayStories(responseArray);
+        $user_story_form[0].reset();
+      }); // done
+  }); //on submit
 }); //ready
-
-
