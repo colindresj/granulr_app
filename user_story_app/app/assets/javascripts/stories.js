@@ -1,5 +1,6 @@
 function Story(story){
   this.dataObject = story;
+  this.parentObject = {};
   this.$domNode = $('<div>')
                 .addClass('col-lg-3 col-md-4 col-sm-6 col-xs-12 tile');
   this.completed = this.dataObject.completed;
@@ -19,7 +20,6 @@ Story.prototype.addContentToDomNode = function(){
 
 
 Story.prototype.toggleComplete = function(){
-  debugger
   if (this.completed === false){
     this.completed = true;
     var story = this;
