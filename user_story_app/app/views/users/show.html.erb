@@ -17,7 +17,7 @@
     <%= @user.phone %>
   </p>
 
-  <form id="user_story_form" action="">
+  <form id="user_story_form" style="display:none;">
     <div>
       <label>As a:</label>
       <input id="as_a" type="text" name="as_a">
@@ -36,6 +36,8 @@
   </form>
 
 </div>
-<div id="breadcrumbs"><span>Dashboard</span> > <span id="add-story">Add</span></div>
+<h2 id="current-title">Dashboard</h2>
+<h5 id="subtitle"></h5>
+<div id="breadcrumbs"><span id="dashboard-link">Dashboard</span><i> / </i><span id="add-story">Add</span></div>
 
-<div id="tiles-container" class="row"></div>
+<div id="tiles-container"></div>

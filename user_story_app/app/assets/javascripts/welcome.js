@@ -6,6 +6,13 @@ $(function(){
     currentUser.displayStories(currentUser.storyTree);
   });
 
+  $('#dashboard-link').on('click', function(){
+    currentUser.goBackToDashboard();
+    currentUser.displayStories(currentUser.storyTree);
+  });
+
+  $('#breadcrumbs').on('click', '#add-story', currentUser.showCreateStoryForm);
+
 
 // seemingly needed this variable declared before the event handler that follows
   var $user_story_form = $("#user_story_form");
