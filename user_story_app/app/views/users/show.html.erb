@@ -2,21 +2,7 @@
 
 <div id="current-user" data-user="<%= @user.to_json %>">
 
-  <p>
-    <b>Name:</b>
-    <%= @user.name %>
-  </p>
-
-  <p>
-    <b>Email:</b>
-    <%= @user.email %>
-  </p>
-
-  <p>
-    <b>Phone:</b>
-    <%= @user.phone %>
-  </p>
-
+  <h1><%= @user.name %>'s Goals</h1>
   <form id="user_story_form" style="display:none;">
     <div>
       <label>As a:</label>
