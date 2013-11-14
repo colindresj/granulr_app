@@ -1,8 +1,8 @@
 UserStoryApp::Application.routes.draw do
 
-  devise_for :users
+devise_for :users, :controllers => { :registrations => :registrations }
 
-  get "welcome/index"
+get "welcome/index"
 
 root to: "welcome#index"
 
