@@ -116,8 +116,7 @@ User.prototype.displayStories = function(array){
         debugger
 
 
-        var storyClicked = $(this).attr('id');
-
+        var storyClicked = parseInt($(this).attr('id'));
 
         function findMatchingStory(array) {
           var match;
