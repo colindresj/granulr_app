@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.json
+
+  before_filter :authenticate_user!
+  before_filter :correct_user
+
   def index
     @users = User.all
 
@@ -80,4 +84,18 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+  private
+  def correct_user
+    if params[:user_id].present?
+      user = User.find params[:user_id]
+    else
+      user = User.find params[:id]
+    end
+    unless current_user == (user)
+      redirect_to user_path(current_user), :alert => "Not your account."
+    end
+  end
+
 end
