@@ -71,7 +71,6 @@ class StoriesController < ApplicationController
   # PUT /stories/1
   # PUT /stories/1.json
   def update
-    # binding.pry
     @user = User.find(params[:user_id])
     @story = Story.find(params[:id])
 
