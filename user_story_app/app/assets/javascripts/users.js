@@ -53,33 +53,40 @@ User.prototype.displayStories = function(array){
     createdStory.$domNode.on('click', function(){
       self.goToStory(createdStory.dataObject);
 
-      var ancestorsArray = createdStory.dataObject.ancestry.split('/');
-
       // TODO
       // -Exception handling for where there IS no ancestry.
       // -Recursively scan the currentUser.storyTree, checking each
       //  story's ID against the IDs in the ancestorsArray
       //    -where ID's match, append each 'i_want_to' value to
       // the breadcrumbs $('#breadcrumbs') object.
+      if (createdStory.dataObject.ancestry != null) {
+        var ancestorsArray = createdStory.dataObject.ancestry.split('/');
+        $('#depth-title').html(createdStory.dataObject.i_want_to);
+        _.each(currentUser.storyTree, function(story, i){
+          debugger
+          // if (story.id === ) {};
+        });
 
 
-      // $('#depth-title').html(createdStory.dataObject.i_want_to);
-      // _.each(currentUser.storyTree, function(story, i){
-      //   debugger
-      //   // if (story.id === ) {};
-      // });
-      $('#breadcrumbs').html('Dashboard > ' + createdStory.dataObject.i_want_to);
-    });
 
-    // grabs all of the story's children
-    var storyChildren = createdStory.dataObject.children || [];
-    var checkable = true;
 
-    _.each(storyChildren, function(childStory, i){
-        if (childStory.completed === false) {
-          checkable = false;
-        }
+      } else { console.log("The ancestry is set to null, and therefore no breakcrumbs should be appended be") }
+
+
+
+
+        $('#breadcrumbs').html('Dashboard > ' + createdStory.dataObject.i_want_to);
       });
+
+      // grabs all of the story's children
+      var storyChildren = createdStory.dataObject.children || [];
+      var checkable = true;
+
+      _.each(storyChildren, function(childStory, i){
+          if (childStory.completed === false) {
+            checkable = false;
+          }
+        });
 
     // if the story does not have children, add an event listener on 'Done' click
     // that stops propogation, so you don't go into the story and at the same time
