@@ -186,6 +186,7 @@ User.prototype.goToStory = function(dataObject){
   // first clear #tiles-container
   this.$tilesContainer.html('');
 
+  this.currentStory = dataObject;
   this.currentStoryId = dataObject.id;
 
   // run all the children through the displayStories function in order to
@@ -194,8 +195,7 @@ User.prototype.goToStory = function(dataObject){
 };
 
 User.prototype.createStoryAjax = function(){
-  var user = this;
-  return $.ajax({
+  var user = this;  return $.ajax({
     url: '/users/' + user.dataContentObject.id + '/stories',
     type: 'POST',
     dataType: 'json',
