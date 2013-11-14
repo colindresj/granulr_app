@@ -1,28 +1,22 @@
 $(function(){
-  currentUser = new User();
+  var currentUser = new User();
 
   currentUser.getStoriesAjax().done(function(response){
     currentUser.getStoriesEvent(response);
     currentUser.displayStories(currentUser.storyTree);
-    // BIASED_SUGGESTION: change line 6 to:
-      // currentUser.displayStories();
-      // because currentUser has reference to the storyTree
-
   });
 
-  // BIASED_SUGGESTION, MUCH LATER
-    // user.model (may look like this):
-      // {
-      //    name: "Jonathan",
-      //    email: "me@jonl.org",
-      //    storyTree: {
-      //      alphaNodes: [
+  $('#dashboard-link').on('click', function(){
+    currentUser.goBackToDashboard();
+    currentUser.displayStories(currentUser.storyTree);
+  });
 
-      //      ]
-      //    }
-      // }
-      // user.view
 
+  $('#edit-current-story').on("click", function (e) {
+    debugger
+    e.stopPropagation();
+    $('#edit-modal').modal();
+  });
 
 // seemingly needed this variable declared before the event handler that follows
   var $user_story_form = $("#user_story_form");

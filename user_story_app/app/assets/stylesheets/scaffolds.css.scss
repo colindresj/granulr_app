@@ -1,5 +1,14 @@
 body {
-  background-color: #fff;
+
+  // consider implementing user background selection functionality
+
+  background-image: url('pinterest-scribble.png');
+  background-image: url('wood.png');
+
+
+
+  background-repeat:repeat;
+
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
