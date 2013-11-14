@@ -1,3 +1,25 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#breadcrumbs {
+  margin: 10px 0;
+}
+.tile {
+  border: 2px solid grey;
+  background-color: white;
+  padding: 10px 15px;
+  margin: 10px;
+
+  /* creates the rounded effect of the tiles */
+  border-top-right-radius: 7px;
+  border-top-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  border-bottom-left-radius: 7px;
+
+  .complete-checkbox {
+    border: 1.5px solid grey;
+    border-style: outset;
+    max-width: 45px;
+    text-align: center;
+  }
+}

@@ -22,6 +22,53 @@ User.prototype.getStoriesEvent = function(response){
   this.storyTree = response;
 };
 
+User.prototype.goBackToDashboard = function(){
+  this.$tilesContainer.html('');
+  $('#current-title').html('Dashboard');
+  $('#subtitle').html('');
+  $('.breadcrumbs-slash').remove();
+  $('.story-link').remove();
+};
+
+User.prototype.goBackToStoryPage = function(linkClicked, story){
+  this.$tilesContainer.html('');
+  $('#current-title').html(story.dataObject.i_want_to);
+  $('#subtitle').html('');
+  $('#subtitle').append('<span>As a: ' + story.dataObject.as_a + ' &rarr; </span>');
+  $('#subtitle').append('<span>I want to: ' + story.dataObject.i_want_to + ' &rarr; </span>');
+  $('#subtitle').append('<span>So I can: ' + story.dataObject.so_i_can + '</span>');
+  $('#add-story').remove();
+  linkClicked.siblings('.breadcrumbs-slash').last().remove()
+  // $('.breadcrumbs-slash').remove();
+  linkClicked.nextAll().remove();
+  linkClicked.css('font-weight', 'bold');
+  $('.story-link').on('click', function(){
+
+    var linkClicked = $(this);
+    var storyClicked = $(this).attr('id');
+
+    function findMatchingStory(array) {
+      var match;
+      _.each(array, function(story){
+        if (story.dataObject.i_want_to === storyClicked) {
+          match = story;
+        }
+      });
+      console.log(match.dataObject.i_want_to);
+      return match;
+    }
+
+    var storyMatched = findMatchingStory(self.allStories);
+    self.goBackToStoryPage(linkClicked, storyMatched);
+    self.displayStories(storyMatched.dataObject.children);
+
+
+        // currentUser.displayStories(currentUser.storyTree);
+      });
+  // $('#breadcrumbs').append('<span class="story-link" id="' + story.dataObject.i_want_to + '" style="font-weight:bold;">' + story.dataObject.i_want_to + '</span> <i class="breadcrumbs-slash"> / </i> ');
+  $('#breadcrumbs').append('<i class="breadcrumbs-slash"> / </i><span id="add-story">Add</span>');
+};
+
 // grab a particular set of sibling stories as an array
 User.prototype.displayStories = function(array){
   var self = this;
@@ -51,8 +98,38 @@ User.prototype.displayStories = function(array){
     // to 'step into' it and see those children stories
     createdStory.$domNode.on('click', function(){
       self.goToStory(createdStory.dataObject);
+      $('#current-title').html(createdStory.dataObject.i_want_to);
+      $('#subtitle').html('');
+      $('#subtitle').append('<span>As a: ' + createdStory.dataObject.as_a + ' &rarr; </span>');
+      $('#subtitle').append('<span>I want to: ' + createdStory.dataObject.i_want_to + ' &rarr; </span>');
+      $('#subtitle').append('<span>So I can: ' + createdStory.dataObject.so_i_can + '</span>');
       $('#add-story').remove();
-      $('#breadcrumbs').append('<span class="link">' + createdStory.dataObject.i_want_to + '</span> > ');
+      $('.story-link').css('font-weight', 'normal');
+      $('.story-link').on('click', function(){
+
+        var linkClicked = $(this);
+
+        var storyClicked = $(this).attr('id');
+
+        function findMatchingStory(array) {
+          var match;
+          _.each(array, function(story){
+            if (story.dataObject.i_want_to === storyClicked) {
+              match = story;
+            }
+          });
+          console.log(match.dataObject.i_want_to);
+          return match;
+        }
+
+        var storyMatched = findMatchingStory(self.allStories);
+        self.goBackToStoryPage(linkClicked, storyMatched);
+        self.displayStories(storyMatched.dataObject.children);
+
+
+        // currentUser.displayStories(currentUser.storyTree);
+      });
+      $('#breadcrumbs').append('<span class="story-link" id="' + createdStory.dataObject.i_want_to + '" style="font-weight:bold;">' + createdStory.dataObject.i_want_to + '</span> <i class="breadcrumbs-slash"> / </i> ');
       $('#breadcrumbs').append('<span id="add-story">Add</span>');
     });
 
@@ -127,6 +204,6 @@ User.prototype.createStoryAjax = function(){
         parent_id: user.currentStoryId
             } // story
           } // data
-        }) // ajax
+        }); // ajax
 
-} // createStoryAjax
+}; // createStoryAjax
