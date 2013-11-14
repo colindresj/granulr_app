@@ -21,6 +21,7 @@ $(function(){
     e.preventDefault();
     currentUser.createStoryAjax()
       .done(function(response) {
+        currentUser.currentStory.children.push(response);
         // to allow us to iterate over the response with the 'displayStories' function (it would otherwise be an object, which wouldn't work)
         var responseArray = [response];
         currentUser.displayStories(responseArray);
