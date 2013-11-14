@@ -5,6 +5,7 @@ function User() {
   // Not important now.
   this.$tilesContainer = $('#tiles-container');
   this.currentStoryId = null;
+  this.allStories = [];
 }
 
 // shortening ajax query for retrieving a user's stories based on id
@@ -34,6 +35,7 @@ User.prototype.displayStories = function(array){
 
   _.each(array, function(story, i){
     var createdStory = new Story(story);
+    self.allStories.push(createdStory);
 
     if (createdStory.completed) {
       createdStory.$domNode.css('color', 'green');
@@ -49,6 +51,9 @@ User.prototype.displayStories = function(array){
     // to 'step into' it and see those children stories
     createdStory.$domNode.on('click', function(){
       self.goToStory(createdStory.dataObject);
+      $('#add-story').remove();
+      $('#breadcrumbs').append('<span class="link">' + createdStory.dataObject.i_want_to + '</span> > ');
+      $('#breadcrumbs').append('<span id="add-story">Add</span>');
     });
 
     // grabs all of the story's children
@@ -68,7 +73,7 @@ User.prototype.displayStories = function(array){
       createdStory.$checkboxWrapperNode.on('click', function(e){
         e.stopPropagation();
         if (createdStory.completed) {
-          createdStory.toggleComplete()
+          createdStory.toggleComplete();
           createdStory.$domNode.css('color', 'red');
         } else {
           createdStory.toggleComplete();
@@ -92,22 +97,6 @@ User.prototype.displayStories = function(array){
         e.stopPropagation();
       });
     }
-
-    // if the story has children, loop through those children and check if any of those
-    // children have 'completed' value === false
-    // if so, disable clicking on 'Done'
-    // else {
-    //  _.each(storyChildren, function(childStory, i){
-    //    if (childStory.completed === false) {
-    //      createdStory.$domNode.css('color', 'gray');
-    //      createdStory.$checkboxWrapperNode.on('click', function(e){
-    //        e.stopPropagation();
-    //      });
-    //    }
-    //  });
-    // }
-    // loops through each of the
-    // allows the user to click the done button on a story without going into it
   }); // each
 }; // display stories function
 
