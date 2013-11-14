@@ -45,16 +45,16 @@ User.prototype.goBackToStoryPage = function(linkClicked, story){
   $('.story-link').on('click', function(){
 
     var linkClicked = $(this);
-    var storyClicked = $(this).attr('id');
+    var storyClicked = parseInt($(this).attr('id'));
 
     function findMatchingStory(array) {
+      debugger
       var match;
       _.each(array, function(story){
         if (story.dataObject.i_want_to === storyClicked) {
           match = story;
         }
       });
-      console.log(match.dataObject.i_want_to);
       return match;
     }
 
@@ -113,16 +113,20 @@ User.prototype.displayStories = function(array){
 
         var linkClicked = $(this);
 
+        debugger
+
+
         var storyClicked = $(this).attr('id');
+
 
         function findMatchingStory(array) {
           var match;
           _.each(array, function(story){
-            if (story.dataObject.i_want_to === storyClicked) {
+            if (story.dataObject.id === storyClicked) {
+
               match = story;
             }
           });
-          console.log(match.dataObject.i_want_to);
           return match;
         }
 
@@ -133,7 +137,7 @@ User.prototype.displayStories = function(array){
 
         // currentUser.displayStories(currentUser.storyTree);
       });
-      $('#breadcrumbs').append('<span class="story-link" id="' + createdStory.dataObject.i_want_to + '" style="font-weight:bold;">' + createdStory.dataObject.i_want_to + '</span> <i class="breadcrumbs-slash"> / </i> ');
+      $('#breadcrumbs').append('<span class="story-link" id="' + createdStory.dataObject.id + '" style="font-weight:bold;">' + createdStory.dataObject.i_want_to + '</span> <i class="breadcrumbs-slash"> / </i> ');
       $('#breadcrumbs').append('<span id="add-story">Add</span>');
     });
 
@@ -195,7 +199,8 @@ User.prototype.goToStory = function(dataObject){
 };
 
 User.prototype.createStoryAjax = function(){
-  var user = this;  return $.ajax({
+  var user = this;
+  return $.ajax({
     url: '/users/' + user.dataContentObject.id + '/stories',
     type: 'POST',
     dataType: 'json',

@@ -259,3 +259,8 @@ vendor
   External libraries that the application depends on. Also includes the plugins
   subdirectory. If the app has frozen rails, those gems also go here, under
   vendor/rails/. This directory is in the load path.
+
+
+
+  ### Todo
+  - fix error where newly parent stories that are completed don't switch to incomplete when a newly created child or subchild is added to its line of descendents
