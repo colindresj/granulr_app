@@ -19,10 +19,6 @@ Story.prototype.addContentToDomNode = function(){
 
 
 Story.prototype.toggleComplete = function(){
-<<<<<<< HEAD
-=======
-  debugger
->>>>>>> 11bd9193d1fe295378676ece94b26c720e015503
   if (this.completed === false){
     this.completed = true;
     var story = this;

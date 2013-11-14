@@ -11,11 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(:version => 20131113202254) do
-=======
 ActiveRecord::Schema.define(:version => 20131113205941) do
->>>>>>> 11bd9193d1fe295378676ece94b26c720e015503
 
   create_table "stories", :force => true do |t|
     t.string   "as_a"
