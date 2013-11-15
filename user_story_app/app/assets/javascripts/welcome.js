@@ -18,6 +18,7 @@ $(function(){
   var $user_story_form = $("#user_story_form");
 
   $user_story_form.on("submit", function(e){
+    debugger
     e.preventDefault();
     currentUser.createStoryAjax()
       .done(function(response) {

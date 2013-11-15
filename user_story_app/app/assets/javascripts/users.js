@@ -113,7 +113,6 @@ User.prototype.displayStories = function(array){
 
         var linkClicked = $(this);
 
-        debugger
 
 
         var storyClicked = parseInt($(this).attr('id'));
