@@ -98,8 +98,10 @@ User.prototype.displayStories = function(array){
 
     // append that Story object's DOM representation to #tiles-container
     createdStory.addContentToDomNode();
-    if (createdStory.dataObject.children.length > 0) {
-      createdStory.$domNode.append('<button class="btn btn-default btn-xs">View Nested Goals</button>');
+    if (createdStory.dataObject.children) {
+      if (createdStory.dataObject.children.length > 0) {
+        createdStory.$domNode.append('<button class="btn btn-default btn-xs">View Nested Goals</button>');
+      }
     }
     self.$tilesContainer.append(createdStory.$domNode);
 
