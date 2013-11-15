@@ -1,6 +1,5 @@
 function Story(story){
   this.dataObject = story;
-  this.parentObject = {};
   this.$domNode = $('<div>')
                 .addClass('col-lg-3 col-md-4 col-sm-6 col-xs-12 tile');
   this.completed = this.dataObject.completed;
@@ -36,12 +35,6 @@ Story.prototype.toggleComplete = function(){
           user_id: story.dataObject.user_id,
           parent_id: story.dataObject.parent_id
         }
-      },
-      success: function(response){
-        console.log('worked going true');
-      },
-      error: function(response){
-        console.log('did not work going true');
       }
     });
   } else {
@@ -60,12 +53,6 @@ Story.prototype.toggleComplete = function(){
           user_id: story.dataObject.user_id,
           parent_id: story.dataObject.parent_id
         }
-      },
-      success: function(response){
-        console.log('worked going false');
-      },
-      error: function(response){
-        console.log('did not work going false');
       }
     });
   }

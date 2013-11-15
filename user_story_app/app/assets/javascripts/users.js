@@ -31,6 +31,8 @@ User.prototype.goBackToDashboard = function(){
 };
 
 User.prototype.goBackToStoryPage = function(linkClicked, story){
+  debugger
+  var self = this;
   this.$tilesContainer.html('');
   $('#current-title').html(story.dataObject.i_want_to);
   $('#subtitle').html('');
@@ -57,7 +59,7 @@ User.prototype.goBackToStoryPage = function(linkClicked, story){
       });
       return match;
     }
-
+    debugger
     var storyMatched = findMatchingStory(self.allStories);
     self.goBackToStoryPage(linkClicked, storyMatched);
     self.displayStories(storyMatched.dataObject.children);
@@ -88,6 +90,7 @@ User.prototype.displayStories = function(array){
     var createdStory = new Story(story);
     self.allStories.push(createdStory);
 
+
     if (createdStory.completed) {
       createdStory.$domNode.css('color', 'green');
     } else {
@@ -112,9 +115,6 @@ User.prototype.displayStories = function(array){
       $('.story-link').on('click', function(){
 
         var linkClicked = $(this);
-
-        debugger
-
 
         var storyClicked = parseInt($(this).attr('id'));
 
