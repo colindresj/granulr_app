@@ -31,7 +31,6 @@ User.prototype.goBackToDashboard = function(){
 };
 
 User.prototype.goBackToStoryPage = function(linkClicked, story){
-  debugger
   var self = this;
   this.$tilesContainer.html('');
   $('#current-title').html(story.dataObject.i_want_to);
@@ -50,7 +49,6 @@ User.prototype.goBackToStoryPage = function(linkClicked, story){
     var storyClicked = parseInt($(this).attr('id'));
 
     function findMatchingStory(array) {
-      debugger
       var match;
       _.each(array, function(story){
         if (story.dataObject.i_want_to === storyClicked) {
@@ -59,7 +57,6 @@ User.prototype.goBackToStoryPage = function(linkClicked, story){
       });
       return match;
     }
-    debugger
     var storyMatched = findMatchingStory(self.allStories);
     self.goBackToStoryPage(linkClicked, storyMatched);
     self.displayStories(storyMatched.dataObject.children);
@@ -92,13 +89,18 @@ User.prototype.displayStories = function(array){
 
 
     if (createdStory.completed) {
+      debugger
       createdStory.$domNode.css('color', 'green');
     } else {
       createdStory.$domNode.css('color', 'red');
     }
 
+
     // append that Story object's DOM representation to #tiles-container
     createdStory.addContentToDomNode();
+    if (createdStory.dataObject.children.length > 0) {
+      createdStory.$domNode.append('<button class="btn btn-default btn-xs">View Nested Goals</button>');
+    }
     self.$tilesContainer.append(createdStory.$domNode);
 
     // add an event listener on click
@@ -161,6 +163,7 @@ User.prototype.displayStories = function(array){
           createdStory.$domNode.css('color', 'red');
         } else {
           createdStory.toggleComplete();
+          createdStory.$domNode.find('.complete-checkbox').html('Revert to incomplete');
           createdStory.$domNode.css('color', 'green');
         }
       }); // on click of checkboxWrapperNode
@@ -173,10 +176,13 @@ User.prototype.displayStories = function(array){
         } else {
           createdStory.toggleComplete();
           createdStory.$domNode.css('color', 'green');
+          debugger
+          createdStory.$domNode.find('.complete-checkbox').html('Revert to incomplete');
         }
       }); // on click of checkboxWrapperNode
     } else {
       createdStory.$domNode.css('color', 'gray');
+      createdStory.$domNode.find('.complete-checkbox').remove();
       createdStory.$checkboxWrapperNode.on('click', function(e){
         e.stopPropagation();
       });
