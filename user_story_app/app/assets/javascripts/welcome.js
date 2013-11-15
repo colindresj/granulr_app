@@ -22,7 +22,6 @@ $(function(){
     e.preventDefault();
     currentUser.createStoryAjax()
       .done(function(response) {
-        debugger
         if (currentUser.currentStory) {
           if (currentUser.currentStory.children) {
           currentUser.currentStory.children.push(response);
