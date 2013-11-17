@@ -46,9 +46,9 @@ User.prototype.createStoryAjax = function(){
 User.prototype.goToStory = function(dataObject){
   // first clear #tiles-container
   this.$tilesContainer.html('');
-
   this.currentStory = dataObject;
   this.currentStoryId = dataObject.id;
+  $('#as_a').val(dataObject.as_a);
 
   // run all the children through the displayStories function in order to
   // create Story objects and apply the proper event listeners
