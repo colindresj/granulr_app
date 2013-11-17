@@ -1,8 +1,5 @@
 function User() {
   this.dataContentObject = $('#current-user').data('user');
-  // # BIASED_SUGGESTION: perhaps change this to this.model
-  // Move this to not rely on the data attribute in the DOM
-  // Not important now.
   this.$tilesContainer = $('#tiles-container');
   this.currentStoryId = null;
   this.allStories = [];
