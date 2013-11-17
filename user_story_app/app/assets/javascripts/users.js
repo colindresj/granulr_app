@@ -120,7 +120,7 @@ User.prototype.displayStories = function(array){
     var createdStory = new Story(story);
     self.allStories.push(createdStory);
 
-
+    // depending on whether the story (in the storyTree)
     if (createdStory.completed) {
       // alert(createdStory.dataObject.i_want_to + ' complete.');
       createdStory.$domNode.css('color', 'green');
@@ -232,7 +232,7 @@ User.prototype.displayStories = function(array){
               if (story.depth_attribute !== createdStory.dataObject.depth_attribute - 1) {
                 _.each(story.children, function(story){
                   if (story.depth_attribute !== createdStory.dataObject.depth_attribute - 1) {
-                    debugger
+                    debugger;
                   } else {
                     var matcher = _.findWhere(story.children, {id: createdStory.dataObject.id});
                     matcher.completed = true;

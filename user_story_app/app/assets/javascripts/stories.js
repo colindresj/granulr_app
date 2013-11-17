@@ -20,6 +20,7 @@ Story.prototype.addContentToDomNode = function(){
 
 
 Story.prototype.toggleComplete = function(){
+  debugger;
   if (this.completed === false){
     this.completed = true;
     var story = this;
