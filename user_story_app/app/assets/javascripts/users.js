@@ -5,7 +5,10 @@ function User() {
   this.allStories = [];
 }
 
-// shortening ajax query for retrieving a user's stories based on id
+// ========================================================
+// AJAX requests
+// ========================================================
+
 User.prototype.getStoriesAjax = function(){
   return $.ajax({
     url: '/users/' + this.dataContentObject.id + '/stories',
@@ -17,6 +20,39 @@ User.prototype.getStoriesAjax = function(){
 // set the current user's storyTree to the AJAX response
 User.prototype.getStoriesEvent = function(response){
   this.storyTree = response;
+};
+
+User.prototype.createStoryAjax = function(){
+  var user = this;
+  return $.ajax({
+    url: '/users/' + user.dataContentObject.id + '/stories',
+    type: 'POST',
+    dataType: 'json',
+    data: {
+      story: {
+        as_a: $("#as_a").val(),
+        i_want_to: $("#i_want_to").val(),
+        so_i_can: $("#so_i_can").val(),
+        user_id: user.dataContentObject.id,
+        parent_id: user.currentStoryId
+            } // story
+          } // data
+        }); // ajax
+}; // createStoryAjax
+
+// ========================================================
+// Navigation
+// ========================================================
+User.prototype.goToStory = function(dataObject){
+  // first clear #tiles-container
+  this.$tilesContainer.html('');
+
+  this.currentStory = dataObject;
+  this.currentStoryId = dataObject.id;
+
+  // run all the children through the displayStories function in order to
+  // create Story objects and apply the proper event listeners
+  this.displayStories(dataObject.children);
 };
 
 User.prototype.goBackToDashboard = function(){
@@ -36,14 +72,14 @@ User.prototype.goBackToStoryPage = function(linkClicked, story){
   $('#subtitle').append('<span>I want to: ' + story.dataObject.i_want_to + ' &rarr; </span>');
   $('#subtitle').append('<span>So I can: ' + story.dataObject.so_i_can + '</span>');
   $('#add-story').remove();
-  linkClicked.siblings('.breadcrumbs-slash').last().remove()
+  linkClicked.siblings('.breadcrumbs-slash').last().remove();
   // $('.breadcrumbs-slash').remove();
   linkClicked.nextAll().remove();
   linkClicked.css('font-weight', 'bold');
   $('.story-link').on('click', function(){
 
     var linkClicked = $(this);
-    var storyClicked = parseInt($(this).attr('id'));
+    var storyClicked = parseInt(linkClicked.attr('id'));
 
     function findMatchingStory(array) {
       var match;
@@ -155,7 +191,7 @@ User.prototype.displayStories = function(array){
 
     // if the story does not have children, add an event listener on 'Done' click
     // that stops propogation, so you don't go into the story and at the same time
-    // allows you to toggle the storie's 'completed' value
+    // allows you to toggle the story's 'completed' value
     if (storyChildren.length === 0){
       createdStory.$checkboxWrapperNode.on('click', function(e){
         e.stopPropagation();
@@ -274,34 +310,4 @@ User.prototype.displayStories = function(array){
   }); // each
 }; // display stories function
 
-User.prototype.goToStory = function(dataObject){
 
-  // first clear #tiles-container
-  this.$tilesContainer.html('');
-
-  this.currentStory = dataObject;
-  this.currentStoryId = dataObject.id;
-
-  // run all the children through the displayStories function in order to
-  // create Story objects and apply the proper event listeners
-  this.displayStories(dataObject.children);
-};
-
-User.prototype.createStoryAjax = function(){
-  var user = this;
-  return $.ajax({
-    url: '/users/' + user.dataContentObject.id + '/stories',
-    type: 'POST',
-    dataType: 'json',
-    data: {
-      story: {
-        as_a: $("#as_a").val(),
-        i_want_to: $("#i_want_to").val(),
-        so_i_can: $("#so_i_can").val(),
-        user_id: user.dataContentObject.id,
-        parent_id: user.currentStoryId
-            } // story
-          } // data
-        }) // ajax
-
-} // createStoryAjax
