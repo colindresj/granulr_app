@@ -61,6 +61,8 @@ User.prototype.goBackToDashboard = function(){
   $('#subtitle').html('');
   $('.breadcrumbs-slash').remove();
   $('.story-link').remove();
+  // resets the 'as_a' form field to empty
+  $('#as_a').val('');
 };
 
 User.prototype.goBackToStoryPage = function(linkClicked, story){
