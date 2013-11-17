@@ -89,17 +89,20 @@ User.prototype.displayStories = function(array){
 
 
     if (createdStory.completed) {
-      debugger
+      // alert(createdStory.dataObject.i_want_to + ' complete.');
       createdStory.$domNode.css('color', 'green');
     } else {
+      // alert(createdStory.dataObject.i_want_to + ' not complete.');
       createdStory.$domNode.css('color', 'red');
     }
 
 
     // append that Story object's DOM representation to #tiles-container
     createdStory.addContentToDomNode();
-    if (createdStory.dataObject.children.length > 0) {
-      createdStory.$domNode.append('<button class="btn btn-default btn-xs">View Nested Goals</button>');
+    if (createdStory.dataObject.children) {
+      if (createdStory.dataObject.children.length > 0) {
+        createdStory.$domNode.append('<button class="btn btn-default btn-xs">View Nested Goals</button>');
+      }
     }
     self.$tilesContainer.append(createdStory.$domNode);
 
@@ -162,10 +165,52 @@ User.prototype.displayStories = function(array){
         if (createdStory.completed) {
           createdStory.toggleComplete();
           createdStory.$domNode.css('color', 'red');
+          var depth = createdStory.dataObject.depth_attribute;
+          if (depth === 0){
+            var matcher = _.findWhere(self.storyTree, {id: createdStory.dataObject.id});
+            matcher.completed = false;
+          } else {
+            _.each(self.storyTree, function(story){
+              if (story.depth_attribute !== createdStory.dataObject.depth_attribute - 1) {
+                _.each(story.children, function(story){
+                  if (story.depth_attribute !== createdStory.dataObject.depth_attribute - 1) {
+                    debugger
+                  } else {
+                    var matcher = _.findWhere(story.children, {id: createdStory.dataObject.id});
+                    matcher.completed = false;
+                  }
+                });
+              } else {
+                var matcher = _.findWhere(story.children, {id: createdStory.dataObject.id});
+                matcher.completed = false;
+              }
+            });
+          }
         } else {
           createdStory.toggleComplete();
           createdStory.$domNode.find('.complete-checkbox').html('Revert to incomplete');
           createdStory.$domNode.css('color', 'green');
+          var depth = createdStory.dataObject.depth_attribute;
+          if (depth === 0){
+            var matcher = _.findWhere(self.storyTree, {id: createdStory.dataObject.id});
+            matcher.completed = true;
+          } else {
+            _.each(self.storyTree, function(story){
+              if (story.depth_attribute !== createdStory.dataObject.depth_attribute - 1) {
+                _.each(story.children, function(story){
+                  if (story.depth_attribute !== createdStory.dataObject.depth_attribute - 1) {
+                    debugger
+                  } else {
+                    var matcher = _.findWhere(story.children, {id: createdStory.dataObject.id});
+                    matcher.completed = true;
+                  }
+                });
+              } else {
+                var matcher = _.findWhere(story.children, {id: createdStory.dataObject.id});
+                matcher.completed = true;
+              }
+            });
+          }
         }
       }); // on click of checkboxWrapperNode
     } else if (storyChildren.length > 0 && checkable === true){
@@ -174,11 +219,52 @@ User.prototype.displayStories = function(array){
         if (createdStory.completed) {
           createdStory.$domNode.css('color', 'red');
           createdStory.toggleComplete();
+          var depth = createdStory.dataObject.depth_attribute;
+          if (depth === 0){
+            var matcher = _.findWhere(self.storyTree, {id: createdStory.dataObject.id});
+            matcher.completed = false;
+          } else {
+            _.each(self.storyTree, function(story){
+              if (story.depth_attribute !== createdStory.dataObject.depth_attribute - 1) {
+                _.each(story.children, function(story){
+                  if (story.depth_attribute !== createdStory.dataObject.depth_attribute - 1) {
+                    debugger
+                  } else {
+                    var matcher = _.findWhere(story.children, {id: createdStory.dataObject.id});
+                    matcher.completed = false;
+                  }
+                });
+              } else {
+                var matcher = _.findWhere(story.children, {id: createdStory.dataObject.id});
+                matcher.completed = false;
+              }
+            });
+          }
         } else {
           createdStory.toggleComplete();
           createdStory.$domNode.css('color', 'green');
-          debugger
           createdStory.$domNode.find('.complete-checkbox').html('Revert to incomplete');
+          var depth = createdStory.dataObject.depth_attribute;
+          if (depth === 0){
+            var matcher = _.findWhere(self.storyTree, {id: createdStory.dataObject.id});
+            matcher.completed = true;
+          } else {
+            _.each(self.storyTree, function(story){
+              if (story.depth_attribute !== createdStory.dataObject.depth_attribute - 1) {
+                _.each(story.children, function(story){
+                  if (story.depth_attribute !== createdStory.dataObject.depth_attribute - 1) {
+                    debugger
+                  } else {
+                    var matcher = _.findWhere(story.children, {id: createdStory.dataObject.id});
+                    matcher.completed = true;
+                  }
+                });
+              } else {
+                var matcher = _.findWhere(story.children, {id: createdStory.dataObject.id});
+                matcher.completed = true;
+              }
+            });
+          }
         }
       }); // on click of checkboxWrapperNode
     } else {

@@ -17,7 +17,11 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"><h1 class="logo">Granulr</h1></a>
+      <% if current_user %>
+        <a class="navbar-brand" href="<%= user_path %>"><h1 class="logo">Granulr</h1></a>
+      <% else %>
+        <a class="navbar-brand" href="<%= root_path %>"><h1 class="logo">Granulr</h1></a>
+      <% end %>
       <img style="float: left;" height="100"src="http://cl.ly/image/2J0P191K361q/logo.png">
       <h5 style="position:relative;top:37px">Step into your goals.</h5>
     </div>
@@ -47,8 +51,6 @@
       <div class="col-md-12">
 
           <!-- Devise Gem Authentication Alerts below -->
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
 
         <% flash.each do |name, msg| %>
           <%= content_tag :div, msg, :id => "flash_#{name}" %>
