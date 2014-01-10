@@ -18,7 +18,7 @@
         <span class="icon-bar"></span>
       </button>
       <% if current_user %>
-        <a class="navbar-brand" href="<%= user_path %>">Granulr</a>
+        <a class="navbar-brand" href="<%= user_path(current_user) %>">Granulr</a>
       <% else %>
         <a class="navbar-brand" href="<%= root_path %>">Granulr</a>
       <% end %>
@@ -49,7 +49,11 @@
 
         <!-- Devise Gem Authentication Alerts below -->
         <% flash.each do |name, msg| %>
-          <%= content_tag :div, msg, :id => "flash_#{name}" %>
+          <div id="flash_#{name}" class="alert alert-danger">
+            <p style="padding: 15px;">
+              <%= msg %>
+            </p>
+          </div>
         <% end %>
 
         <% if show_title? %>
