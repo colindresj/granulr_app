@@ -25,7 +25,6 @@ Story.prototype.editStory = function() {
   //  A) update the dataObject
   //  B) update the database via AJAX
   $updateStoryButton.on("click", function(e){
-    debugger
     e.stopPropagation();
     story.updateStory(story);
   });
@@ -64,15 +63,14 @@ Story.prototype.updateStory = function(story) {
 Story.prototype.addContentToDomNode = function(){
   // takes the domNode we've assigned the story to and inserts
   // the 'as_a' value of the dataObject into the dom node as content
-  this.$domNode.html('<ul><li>As a: <span id="as-a-content">' + this.dataObject.as_a + '</span></li><li>I want to: <span id="i-want-to-content">' + this.dataObject.i_want_to + '</span></li><li>So I can: <span id="so-i-can-content">' + this.dataObject.so_i_can + '</span></li></ul>');
-  this.$domNode.append(this.$checkboxWrapperNode);
+  this.$domNode.html('<div><ul><li>As a: <span id="as-a-content">' + this.dataObject.as_a + '</span></li><li>I want to: <span id="i-want-to-content">' + this.dataObject.i_want_to + '</span></li><li>So I can: <span id="so-i-can-content">' + this.dataObject.so_i_can + '</span></li></ul></div>');
+  this.$domNode.find('div').append(this.$checkboxWrapperNode);
   this.$checkboxWrapperNode.html('Toggle Complete');
   this.$checkboxWrapperNode.addClass('btn btn-default btn-xs');
 }; // addContentToDomNode
 
 
 Story.prototype.toggleComplete = function(){
-  debugger;
   if (this.completed === false){
     this.completed = true;
     var story = this;

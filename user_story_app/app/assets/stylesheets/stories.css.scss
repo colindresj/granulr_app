@@ -13,27 +13,24 @@
   top: 16px;
 }
 .tile {
-  border: 1px solid black;
-  padding: 10px 15px;
-  background-image: url('http://www.adam-mcfarland.net/wp-content/uploads/2009/03/blank-index-card.jpg');
-  background-size: cover;
-  position: relative;
-  padding-top: 18px;
-  margin: 0 10px;
-  min-height: 150px !important;
-  box-shadow: 2px 1px 3px 0px rgba(0,0,0,.35);
-  .complete-checkbox {
-    display: block;
-    float: right;
+  div {
+    padding: 15px;
+    // @extend .panel;
+    // @extend .panel-default;
+    @extend .well;
   }
   button {
     margin-top: 15px;
     border: 1px solid grey;
     box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.25);
   }
-  ul > li {
+  ul {
+    padding: 0;
+  }
+  li {
+    list-style-type: none;
     padding-top: 5px;
-    font-size: 20px;
+    // font-size: 20px;
   }
 }
 .completed-stamp {

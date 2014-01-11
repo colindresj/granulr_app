@@ -126,10 +126,10 @@ User.prototype.displayStories = function(array){
     // depending on whether the story (in the storyTree)
     if (createdStory.completed) {
       // alert(createdStory.dataObject.i_want_to + ' complete.');
-      createdStory.$domNode.css('color', 'green');
+      createdStory.$domNode.css('color', '#3a773a');
     } else {
       // alert(createdStory.dataObject.i_want_to + ' not complete.');
-      createdStory.$domNode.css('color', 'red');
+      createdStory.$domNode.css('color', '#c9214c');
     }
 
 
@@ -200,7 +200,7 @@ User.prototype.displayStories = function(array){
         e.stopPropagation();
         if (createdStory.completed) {
           createdStory.toggleComplete();
-          createdStory.$domNode.css('color', 'red');
+          createdStory.$domNode.css('color', '#c9214c');
           var depth = createdStory.dataObject.depth_attribute;
           if (depth === 0){
             var matcher = _.findWhere(self.storyTree, {id: createdStory.dataObject.id});
@@ -225,7 +225,7 @@ User.prototype.displayStories = function(array){
         } else {
           createdStory.toggleComplete();
           createdStory.$domNode.find('.complete-checkbox').html('Revert to incomplete');
-          createdStory.$domNode.css('color', 'green');
+          createdStory.$domNode.css('color', '#3a773a');
           var depth = createdStory.dataObject.depth_attribute;
           if (depth === 0){
             var matcher = _.findWhere(self.storyTree, {id: createdStory.dataObject.id});
@@ -253,7 +253,7 @@ User.prototype.displayStories = function(array){
       createdStory.$checkboxWrapperNode.on('click', function(e){
         e.stopPropagation();
         if (createdStory.completed) {
-          createdStory.$domNode.css('color', 'red');
+          createdStory.$domNode.css('color', '#c9214c');
           createdStory.toggleComplete();
           var depth = createdStory.dataObject.depth_attribute;
           if (depth === 0){
@@ -278,7 +278,7 @@ User.prototype.displayStories = function(array){
           }
         } else {
           createdStory.toggleComplete();
-          createdStory.$domNode.css('color', 'green');
+          createdStory.$domNode.css('color', '#3a773a');
           createdStory.$domNode.find('.complete-checkbox').html('Revert to incomplete');
           var depth = createdStory.dataObject.depth_attribute;
           if (depth === 0){
