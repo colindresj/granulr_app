@@ -3,6 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #breadcrumbs {
   margin: 10px 0;
+  span:hover {
+    cursor: pointer;
+  }
 }
 .tile {
   border: 2px solid grey;

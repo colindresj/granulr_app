@@ -103,7 +103,8 @@ User.prototype.goBackToStoryPage = function(linkClicked, story){
   $('#breadcrumbs').append('<i class="breadcrumbs-slash"> / </i><span id="add-story">Add</span>');
 };
 
-User.prototype.showCreateStoryForm = function(){
+User.prototype.showHideCreateStoryForm = function(e){
+  e.preventDefault();
   $('#user_story_form').slideToggle();
 };
 
@@ -177,7 +178,7 @@ User.prototype.displayStories = function(array){
 
         // currentUser.displayStories(currentUser.storyTree);
       });
-      $('#breadcrumbs').append('<span class="story-link" id="' + createdStory.dataObject.id + '" style="font-weight:bold;">' + createdStory.dataObject.i_want_to + '</span> <i class="breadcrumbs-slash"> / </i> ');
+      $('#breadcrumbs').append('<span class="story-link" id="' + createdStory.dataObject.id + '" style="font-weight:bold;cursor:default;">' + createdStory.dataObject.i_want_to + '</span> <i class="breadcrumbs-slash"> / </i> ');
       $('#breadcrumbs').append('<span id="add-story">Add</span>');
     });
 

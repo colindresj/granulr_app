@@ -11,7 +11,8 @@ $(function(){
     currentUser.displayStories(currentUser.storyTree);
   });
 
-  $('#breadcrumbs').on('click', '#add-story', currentUser.showCreateStoryForm);
+  $('#breadcrumbs').on('click', '#add-story', currentUser.showHideCreateStoryForm);
+  $('#user_story_form').on('click', '#cancel-goal', currentUser.showHideCreateStoryForm);
 
 
 // seemingly needed this variable declared before the event handler that follows
