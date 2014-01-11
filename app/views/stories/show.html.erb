@@ -1,0 +1,24 @@
+
+<p>
+  <b>As a:</b>
+  <%= @story.as_a %>
+</p>
+
+<p>
+  <b>I want to:</b>
+  <%= @story.i_want_to %>
+</p>
+
+<p>
+  <b>So i can:</b>
+  <%= @story.so_i_can %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @story.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_story_path(@story) %> |
+<%= link_to 'Back', stories_path %>
