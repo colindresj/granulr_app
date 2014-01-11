@@ -1,6 +1,6 @@
 class CreateStoryTable < ActiveRecord::Migration
   def change
-    create_table(:users) do |t|
+    create_table(:stories) do |t|
       t.string  :as_a
       t.string :i_want_to
       t.string :so_i_can
